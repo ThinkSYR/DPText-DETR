@@ -69,7 +69,7 @@ class TextDetEvaluator(DatasetEvaluator):
         elif "inversetext" in dataset_name:
             self._text_eval_gt_path = "datasets/evaluation/gt_inversetext.zip"
         else:
-            raise NotImplementedError
+            self._text_eval_gt_path = "/root/autodl-tmp/ppocr_data/gt_txts_test_paras.zip"
 
     def reset(self):
         self._predictions = []

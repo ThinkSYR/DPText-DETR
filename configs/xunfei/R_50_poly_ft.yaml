@@ -1,0 +1,23 @@
+_BASE_: "./Base.yaml"
+
+# 这边还得配置一下，在 adet/data/builtin.py
+DATASETS:
+  TRAIN: ("xunfei_para_train_all",)
+  TEST: ("xunfei_para_test",)  
+
+MODEL:
+  WEIGHTS: "output/para_detr_r50/model_0199999.pth"  # or the provided pre-trained model
+
+SOLVER:
+  IMS_PER_BATCH: 2
+  BASE_LR: 2e-5
+  LR_BACKBONE: 2e-6
+  WARMUP_ITERS: 0
+  STEPS: (45000,) # (8000,) # (16000,) # 学习率调整iter
+  MAX_ITER: 60000 # 20000
+  CHECKPOINT_PERIOD: 4000 # 4000 # 20000
+
+TEST:
+  EVAL_PERIOD: 2000
+
+OUTPUT_DIR: "output/para_detr_r50_ft"

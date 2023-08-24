@@ -35,14 +35,29 @@ _PREDEFINED_SPLITS_TEXT = {
     "ctw1500_poly_test": ("ctw1500/test_images","ctw1500/test_poly.json"),
     "art_test": ("art/test_images","art/test_poly.json"),
     "inversetext_test": ("inversetext/test_images","inversetext/test_poly.json"),
+    #-------------------------------------------------------------------------------------------------------
+    # paragraphs
+    "xunfei_para_train": (
+        "/root/autodl-tmp/ppocr_data/images",
+        "/root/autodl-tmp/ppocr_data/train_para_poly_data.json"
+    ),
+    "xunfei_para_train_all": (
+        "/root/autodl-tmp/ppocr_data/images",
+        "/root/autodl-tmp/ppocr_data/train_poly_all_data.json"
+    ),
+    "xunfei_para_test": (
+        "/root/autodl-tmp/ppocr_data/images",
+        "/root/autodl-tmp/ppocr_data/test_para_poly_data.json"
+    ),
 }
 
 metadata_text = {
     "thing_classes": ["text"]
 }
+# ROOT = "datasets"
+ROOT = "/"
 
-
-def register_all_coco(root="datasets"):
+def register_all_coco(root=ROOT):
     for key, (image_root, json_file) in _PREDEFINED_SPLITS_PIC.items():
         # Assume pre-defined datasets live in `./datasets`.
         register_coco_instances(

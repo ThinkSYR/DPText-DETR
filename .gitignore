@@ -1,0 +1,9 @@
+output/
+**__pycache__/
+build/
+**.egg-info
+**.so
+wandb/
+*.zip
+temp*
+result/
